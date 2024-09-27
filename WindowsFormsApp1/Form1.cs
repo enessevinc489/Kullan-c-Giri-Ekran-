@@ -16,25 +16,45 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
         }
-
+        int giris_hakki = 3;
+        int hata_oldumu;
         private void button1_Click(object sender, EventArgs e)
         {
-            int hata_oldumu;
+            
             if(textBox1.Text !="enes")
             {
                 hata_oldumu = 1;
-                label1.Visible = true;
                 MessageBox.Show("Kullanıcı Adı Hatalı");
             }
             if (textBox3.Text !="123")
             {
                 hata_oldumu = 2;
-                label1.Visible = true;
                 MessageBox.Show("Şifre Hatalı");
+                giris_hakki--;
             }
-            
 
 
+            if (giris_hakki > 0)
+            {
+                if (hata_oldumu == 0)
+                {
+                    MessageBox.Show("başarılı");
+                }
+                else
+                {
+                    MessageBox.Show("hatalı, Kalan giriş hakkı :" + giris_hakki);
+                }
+
+            }
+            else
+            {
+                button1.Enabled = false;
+                textBox1.Text = "";
+                textBox3.Text = "";
+
+                textBox1.Enabled = false;
+                textBox3.Enabled = false;
+            }
 
 
 
@@ -51,14 +71,6 @@ namespace WindowsFormsApp1
                 MessageBox.Show("Yanlış Şifre");
             }
             */
-
-
-
-
-
-
-
-
 
 
             /*
